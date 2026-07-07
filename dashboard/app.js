@@ -323,6 +323,7 @@ playBtn.addEventListener('click', () => {
 audio.addEventListener('play',  () => playBtn.textContent = '⏸');
 audio.addEventListener('pause', () => playBtn.textContent = '▶');
 audio.addEventListener('loadedmetadata', () => {
+  audio.playbackRate = Number(rateEl.value);   // re-apply speed (reset by new src)
   if (pendingOffset != null) { try { audio.currentTime = pendingOffset; } catch (e) {} pendingOffset = null; }
   updateTimeline();
   if (wantPlay) { audio.play(); wantPlay = false; }

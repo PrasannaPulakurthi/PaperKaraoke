@@ -1,0 +1,9 @@
+# PaperKaraoke runtime dependencies.
+# The dashboard server (dashboard/server.py) uses only the Python standard
+# library; the PDF viewer (PDF.js) loads from a CDN in the browser. These two
+# packages are all that narrate.py / make_audio.py need.
+#
+#   pip install -r requirements.txt
+
+PyMuPDF==1.24.10   # "fitz": PDF text + word-box extraction
+edge-tts==7.2.8    # Microsoft neural TTS (streams audio; needs internet)

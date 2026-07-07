@@ -1,0 +1,15 @@
+# --- generated / regenerable (never commit) ---
+cache/
+uploads/
+voices/
+audio/
+__pycache__/
+*.pyc
+
+# --- confidential peer-review material (never commit) ---
+*.pdf
+CLAUDE.md
+Reviews/
+
+# --- local tooling ---
+.claude/

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PDF Narration Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <span class="brand">🎤 PaperKaraoke</span>
+    <label class="pick">
+      <span>Paper</span>
+      <select id="pdfSelect"><option value="">Loading…</option></select>
+    </label>
+    <button id="uploadBtn" class="upload">Upload PDF…</button>
+    <input id="fileInput" type="file" accept="application/pdf,.pdf" hidden>
+    <span id="status" class="status"></span>
+  </header>
+
+  <div id="progress" class="progress" hidden>
+    <div class="bar"><div id="barFill" class="fill"></div></div>
+    <span id="progMsg" class="progmsg"></span>
+  </div>
+
+  <main id="viewer" class="viewer">
+    <div id="pages" class="pages"></div>
+    <div id="empty" class="empty">Pick a paper, or upload one, to begin.</div>
+  </main>
+
+  <footer class="player">
+    <button id="playBtn" class="play" disabled aria-label="Play/Pause">▶</button>
+    <span id="cur" class="time">0:00</span>
+    <input id="seek" class="seek" type="range" min="0" max="1000" value="0" step="1" disabled>
+    <span id="dur" class="time">0:00</span>
+    <label class="rate">
+      <span>Speed</span>
+      <select id="rate">
+        <option value="0.75">0.75×</option>
+        <option value="1" selected>1×</option>
+        <option value="1.25">1.25×</option>
+        <option value="1.5">1.5×</option>
+      </select>
+    </label>
+    <div class="zoom" role="group" aria-label="Zoom">
+      <button id="zoomOut" title="Zoom out">−</button>
+      <button id="zoomLabel" title="Reset to fit">100%</button>
+      <button id="zoomIn" title="Zoom in">+</button>
+    </div>
+  </footer>
+
+  <audio id="audio" preload="metadata"></audio>
+
+  <!-- PDF.js (UMD build) from cdnjs; app needs internet for edge-tts anyway. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
